@@ -1,21 +1,41 @@
 import "./Filter.scss";
 
-const Filter = () => {
+const Filter = (props) => {
+  const {
+    handleSelectChange,
+    handleSearchChange,
+    handleReset,
+    selectedGender,
+    searchValue,
+  } = props;
+
   return (
     <div className="filter">
       <div className="input input--group">
-        <input type="text" placeholder="Search" className="input-control" />
-        <button className="btn btn--primary">🔍</button>
+        <input
+          type="text"
+          placeholder="Search"
+          className="input-control"
+          value={searchValue}
+          onChange={handleSearchChange}
+        />
+        <button className="btn btn--primary">Search</button>
       </div>
-      <select className="input-control">
-        <option value="" disabled selected>
+      <select
+        className="input-control"
+        onChange={handleSelectChange}
+        value={selectedGender}
+      >
+        <option value="" disabled>
           Select Gender
         </option>
-        <option value="1">All</option>
-        <option value="2">Male</option>
-        <option value="3">Female</option>
+        <option value="all">All</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
       </select>
-      <button className="btn btn--outline-dark">Reset Filter</button>
+      <button className="btn btn--outline-dark" onClick={handleReset}>
+        Reset Filter
+      </button>
     </div>
   );
 };

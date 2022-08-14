@@ -1,6 +1,8 @@
 import "./Table.scss";
 
-const Table = () => {
+const Table = (props) => {
+  const { data } = props;
+
   return (
     <table className="table">
       <thead>
@@ -13,27 +15,16 @@ const Table = () => {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
-          <td>@twitter</td>
-        </tr>
+        {data &&
+          data.map((user, index) => (
+            <tr key={`${user.name} ${index}`}>
+              <td>{user.username}</td>
+              <td>{user.name}</td>
+              <td>{user.email}</td>
+              <td>{user.gender}</td>
+              <td>{user.registeredDate}</td>
+            </tr>
+          ))}
       </tbody>
     </table>
   );

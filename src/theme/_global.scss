@@ -138,6 +138,7 @@ a {
 
   &--primary {
     background-color: $primary;
+    color: $white;
 
     &:hover {
       box-shadow: 0 3px 5px -1px rgb(0 0 0 / 9%), 0 2px 3px -1px rgb(0 0 0 / 7%);
@@ -154,9 +155,27 @@ a {
         background-color: transparent;
         opacity: 0.75;
         box-shadow: none;
-        color: #344767;
+        color: $grey-800;
         transform: scale(1.02);
       }
     }
+
+    &-primary {
+      border: 1px solid $primary;
+      color: $primary;
+
+      &:hover {
+        background-color: transparent;
+        opacity: 0.75;
+        box-shadow: none;
+        color: $primary;
+        transform: scale(1.02);
+      }
+    }
+  }
+
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.65;
   }
 }
