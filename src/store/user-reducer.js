@@ -4,10 +4,6 @@ const userSlice = createSlice({
   name: "user",
   initialState: {
     data: [],
-    params: {
-      page: 0,
-      gender: "",
-    },
   },
   reducers: {
     getUser(state, action) {
@@ -29,7 +25,7 @@ const userSlice = createSlice({
           name: `${user.name.first} ${user.name.last}`,
           email: user.email,
           gender: user.gender,
-          registeredDate: user.registered.date,
+          registered_date: user.registered.date,
         };
       });
     },
