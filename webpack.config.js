@@ -6,7 +6,7 @@ module.exports = {
   // Where files should be sent once they are bundled
   output: {
     path: path.join(__dirname, "/dist"),
-    filename: "index.bundle.js",
+    filename: "bundle.js",
     clean: true,
   },
   // webpack 5 comes with devServer which loads in development mode
@@ -31,8 +31,18 @@ module.exports = {
         },
       },
       {
-        test: /\.scss$/,
-        use: ["style-loader", "css-loader", "sass-loader"],
+        test: /\.(scss|css)$/,
+        use: [
+          "style-loader",
+          "css-loader",
+          "sass-loader",
+          {
+            loader: "sass-resources-loader",
+            options: {
+              resources: "./src/theme/style.scss",
+            },
+          },
+        ],
       },
     ],
   },

@@ -1,0 +1,64 @@
+.table {
+  box-shadow: 0 20px 27px 0 rgb(0 0 0 / 5%);
+  background-color: $white;
+  border: 0 solid rgba(0, 0, 0, 0.125);
+  border-radius: 1rem;
+  caption-side: bottom;
+  border-collapse: collapse;
+  width: 100%;
+
+  thead {
+    th {
+      padding: 1rem;
+      text-transform: capitalize;
+      letter-spacing: 0;
+      border-bottom: 1px solid $grey-200;
+      color: $secondary;
+      text-transform: uppercase;
+      font-weight: $semibold-weight;
+      font-size: 0.875rem;
+      text-align: left;
+
+      &:first-child {
+        padding-left: 1.5rem;
+      }
+
+      &:last-child {
+        padding-right: 1.5rem;
+      }
+    }
+  }
+
+  tbody {
+    td {
+      padding: 1rem;
+      border-bottom: 1px solid $grey-200;
+      color: $grey-600;
+
+      &:first-child {
+        padding-left: 1.5rem;
+      }
+
+      &:last-child {
+        padding-right: 1.5rem;
+      }
+    }
+
+    tr:last-child {
+      td {
+        border-bottom-width: 0px;
+      }
+    }
+  }
+
+  tbody,
+  td,
+  tfoot,
+  th,
+  thead,
+  tr {
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0;
+  }
+}
