@@ -4,6 +4,8 @@ const userSlice = createSlice({
   name: "user",
   initialState: {
     data: [],
+    isLoading: false,
+    isError: false,
   },
   reducers: {
     getUser(state, action) {
@@ -28,6 +30,14 @@ const userSlice = createSlice({
           registered_date: user.registered.date,
         };
       });
+      state.isLoading = false;
+    },
+    getUserRequest(state) {
+      state.isLoading = true;
+    },
+    getUserFailed(state) {
+      state.isLoading = true;
+      state.isError = true;
     },
   },
 });

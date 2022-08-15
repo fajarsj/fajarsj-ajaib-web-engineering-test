@@ -1,7 +1,7 @@
 import "./Table.scss";
 
 const Table = (props) => {
-  const { data, columns, handleSortColumn } = props;
+  const { data, columns, handleSortColumn, loading } = props;
 
   return (
     <table className="table">
@@ -18,7 +18,22 @@ const Table = (props) => {
         </tr>
       </thead>
       <tbody>
-        {data &&
+        {loading && (
+          <tr>
+            <td colSpan="5">
+              <span className="table__info">⏳ Loading...</span>
+            </td>
+          </tr>
+        )}
+        {!loading && data.length === 0 && (
+          <tr>
+            <td colSpan="5">
+              <span className="table__info">🙁 Not found...</span>
+            </td>
+          </tr>
+        )}
+        {!loading &&
+          data &&
           data.map((user, index) => (
             <tr key={`${user.name} ${index}`}>
               <td>{user.username}</td>

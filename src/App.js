@@ -15,6 +15,7 @@ let isInitial = true;
 const App = () => {
   const dispatch = useDispatch();
   const users = useSelector((state) => state.user.data);
+  const isLoading = useSelector((state) => state.user.isLoading);
   const navigate = useNavigate();
   const [currentUser, setCurrentUser] = useState([]);
   const [selectedGender, setSelectedGender] = useState("");
@@ -78,17 +79,21 @@ const App = () => {
   };
 
   useEffect(() => {
-    let filterUsers = [...users];
+    const debounceSearch = setTimeout(() => {
+      let filterUsers = [...users];
 
-    if (searchValue) {
-      filterUsers = filterBySearch(filterUsers, searchValue);
-    }
+      if (searchValue) {
+        filterUsers = filterBySearch(filterUsers, searchValue);
+      }
 
-    if (selectedGender && selectedGender !== "all") {
-      filterUsers = filterByGender(filterUsers, selectedGender);
-    }
+      if (selectedGender && selectedGender !== "all") {
+        filterUsers = filterByGender(filterUsers, selectedGender);
+      }
 
-    setCurrentUser(filterUsers);
+      setCurrentUser(filterUsers);
+    }, 300);
+
+    return () => clearTimeout(debounceSearch);
   }, [selectedGender, searchValue, users]);
 
   const handleSearchChange = (event) => {
@@ -100,9 +105,13 @@ const App = () => {
   };
 
   const handleReset = () => {
+    const copyColumns = [...columns];
+    copyColumns.map((column) => (column.sortByOrder = ""));
+
     setSelectedGender("");
     setSearchValue("");
     setCurrentUser(users);
+    setColumns(copyColumns);
   };
 
   return (
@@ -120,9 +129,10 @@ const App = () => {
           data={currentUser}
           columns={columns}
           handleSortColumn={handleSortColumn}
+          loading={isLoading}
         />
       )}
-      <Pagination />
+      <Pagination disabled={isLoading} />
     </Layout>
   );
 };
