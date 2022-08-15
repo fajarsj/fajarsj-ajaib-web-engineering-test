@@ -1,6 +1,6 @@
 # Fajar Saputro Juliantoro "Ajaib Web Engineering Test"
 
-A simple Single-Page Application where you can see a list of users and filter it by gender and/or keyword.
+A simple Single-Page Application where you can see a list of users and filter it by gender, keyword or sort by column.
 
 ## Getting Started
 
