@@ -9,17 +9,9 @@ const userSlice = createSlice({
   },
   reducers: {
     getUser(state, action) {
-      const sortUserByRegisteredDate = action.payload.data.sort((a, b) => {
-        if (a.registered.date < b.registered.date) {
-          return 1;
-        }
-
-        if (a.registered.date > b.registered.date) {
-          return -1;
-        }
-
-        return 0;
-      });
+      const sortUserByRegisteredDate = action.payload.data.sort((a, b) =>
+        a.registered.date < b.registered.date ? 1 : -1
+      );
 
       state.data = sortUserByRegisteredDate.map((user) => {
         return {
