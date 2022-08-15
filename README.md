@@ -18,8 +18,8 @@ Step by step how to running the software, but first make sure you are already ha
 Then you can follow this step:
 
 1. Open your terminal/command line, and type
-2. _git clone git@github.com:FajarSJ/pokedex.git_
-3. Navigate to this (pokedex) repository folder, and on your terminal/command line type
+2. _git clone git@github.com:FajarSJ/fajarsj-ajaib-web-engineering-test.git_
+3. Navigate to this (fajarsj-ajaib-web-engineering-test) repository folder, and on your terminal/command line type
 4. _yarn install_
 
 ## Running the Program
