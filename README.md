@@ -32,9 +32,7 @@ yarn serve
 
 Open `http://localhost:8080/` on your browser
 
-### To test
-
-To run unit tests:
+### To run unit testing
 
 ```
 yarn test
