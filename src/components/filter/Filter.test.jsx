@@ -1,10 +1,10 @@
 import { render } from "@testing-library/react";
 import "@testing-library/jest-dom";
 
-import Header from "./Header";
+import Filter from "./Filter";
 
-describe("render <Header /> correctly", () => {
-  const view = render(<Header />);
+describe("render <Filter /> correctly", () => {
+  const view = render(<Filter />);
 
   it("renders correctly", () => {
     expect(view).toMatchSnapshot();
